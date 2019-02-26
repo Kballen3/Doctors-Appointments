@@ -1,5 +1,6 @@
 class DoctorsController < ApplicationController
   before_action :set_doctor, only: [:show, :edit, :update, :destroy]
+
   def index
     @doctors = Doctor.all
   end
@@ -13,6 +14,7 @@ class DoctorsController < ApplicationController
 
   def create
     @doctor = Doctor.create(doctor_params)
+    
     if @doctor.save
       redirect_to @doctor
     else
